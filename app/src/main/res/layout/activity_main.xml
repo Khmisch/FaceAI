@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        app:title="FaceAI"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@android:color/black" />
+
+    <!-- Camera Section -->
+    <LinearLayout
+        android:id="@+id/camera_section"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"        android:elevation="5dp"
+        android:background="@drawable/neumorphic_background"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Camera Animation -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/camera_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/lottie_camera" />
+
+        <!-- Text for Camera Section -->
+        <TextView
+            android:id="@+id/live_emotion_analysis_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live Emotion Analysis"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Gallery Section -->
+    <LinearLayout
+        android:id="@+id/gallery_section"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:elevation="4dp"
+        android:background="@drawable/neumorphic_background"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Gallery Animation -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/gallery_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/lottie" />
+
+        <!-- Text for Gallery Section -->
+        <TextView
+            android:id="@+id/photo_emotion_analysis_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo Emotion Analysis"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>

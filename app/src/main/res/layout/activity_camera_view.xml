@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:opencv="http://schemas.android.com/tools">
+
+    <!-- Camera Preview -->
+    <org.opencv.android.JavaCamera2View
+        android:id="@+id/frame_Surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        opencv:show_fps="true"
+        />
+
+    <!-- Camera Flip Switch -->
+    <ImageView
+        android:id="@+id/camera_flip_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/circle_tint"
+        android:padding="6dp"
+        android:src="@drawable/switch_camera" />
+
+</RelativeLayout>
