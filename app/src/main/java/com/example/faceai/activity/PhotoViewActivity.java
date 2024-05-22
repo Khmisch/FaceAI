@@ -5,26 +5,22 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.faceai.EmotionDetectionModel;
+import com.example.faceai.EmotionRecognitionModel;
 import com.example.faceai.R;
 
 import org.opencv.android.Utils;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
 import java.io.IOException;
 public class PhotoViewActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private EmotionDetectionModel emotionDetectionModel;
+    private EmotionRecognitionModel emotionRecognitionModel;
     private static final int REQUEST_IMAGE_FROM_GALLERY = 2;
 
     @Override
@@ -38,7 +34,7 @@ public class PhotoViewActivity extends AppCompatActivity {
         // Initialize EmotionDetectionModel
         try {
             int inputSize = 48;
-            emotionDetectionModel = new EmotionDetectionModel(getAssets(), PhotoViewActivity.this, "model.tflite", inputSize);
+            emotionRecognitionModel = new EmotionRecognitionModel(getAssets(), PhotoViewActivity.this, "model300.tflite", inputSize);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -83,7 +79,7 @@ public class PhotoViewActivity extends AppCompatActivity {
                 Mat selectedImageMat = new Mat();
                 Utils.bitmapToMat(bitmap, selectedImageMat);
                 // Perform emotion detection
-                Mat resultMat = emotionDetectionModel.recognizePhoto(selectedImageMat);
+                Mat resultMat = emotionRecognitionModel.recognizeEmotionPhoto(selectedImageMat);
                 // Convert Mat to Bitmap
                 Bitmap resultBitmap = Bitmap.createBitmap(resultMat.cols(), resultMat.rows(), Bitmap.Config.ARGB_8888);
                 Utils.matToBitmap(resultMat, resultBitmap);

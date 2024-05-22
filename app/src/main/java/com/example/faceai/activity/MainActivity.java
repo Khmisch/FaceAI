@@ -59,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
         // Gallery Section
         LinearLayout gallerySection = findViewById(R.id.gallery_section);
         gallerySection.setOnClickListener(v -> {
-            // Create a chooser dialog
-            // Create a chooser dialog
+
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             Intent pickPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
@@ -74,12 +73,9 @@ public class MainActivity extends AppCompatActivity {
             // Create a chooser dialog only if there are both options available
             if (canTakePhoto && canPickPhoto) {
                 Intent chooserIntent = Intent.createChooser(pickPhotoIntent, "Select Image");
-//                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{takePictureIntent});
                 startActivityForResult(chooserIntent, REQUEST_IMAGE_FROM_GALLERY);
             } else if (canPickPhoto) {
                 startActivityForResult(pickPhotoIntent, REQUEST_IMAGE_FROM_GALLERY);
-//            } else if (canTakePhoto) {
-//                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             } else {
                 Toast.makeText(MainActivity.this, "No gallery or camera apps available", Toast.LENGTH_SHORT).show();
             }

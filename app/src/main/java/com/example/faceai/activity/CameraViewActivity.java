@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceView;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -14,7 +13,7 @@ import android.widget.ImageView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.faceai.EmotionDetectionModel;
+import com.example.faceai.EmotionRecognitionModel;
 import com.example.faceai.R;
 
 import org.opencv.android.BaseLoaderCallback;
@@ -34,7 +33,7 @@ public class CameraViewActivity extends Activity implements CameraBridgeViewBase
     private Mat mRgba;
     private Mat mGray;
     private CameraBridgeViewBase mOpenCvCameraView;
-    private EmotionDetectionModel emotionDetectionModel;
+    private EmotionRecognitionModel emotionRecognitionModel;
 
     private final BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -75,7 +74,7 @@ public class CameraViewActivity extends Activity implements CameraBridgeViewBase
 
         try {
             int inputSize = 48;
-            emotionDetectionModel = new EmotionDetectionModel(getAssets(), CameraViewActivity.this,
+            emotionRecognitionModel = new EmotionRecognitionModel(getAssets(), CameraViewActivity.this,
                     "model.tflite", inputSize);
         } catch (IOException e) {
             e.printStackTrace();
@@ -133,7 +132,7 @@ public class CameraViewActivity extends Activity implements CameraBridgeViewBase
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame){
         mRgba=inputFrame.rgba();
         mGray=inputFrame.gray();
-        mRgba = emotionDetectionModel.recognizeImage(mRgba);
+        mRgba = emotionRecognitionModel.recognizeEmotionLive(mRgba);
         return mRgba;
 
     }

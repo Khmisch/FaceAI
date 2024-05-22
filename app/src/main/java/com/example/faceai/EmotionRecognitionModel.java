@@ -31,7 +31,7 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Objects;
 
-public class EmotionDetectionModel {
+public class EmotionRecognitionModel {
     private final Interpreter interpreter;
     private int INPUT_SIZE;
     private int height=0;
@@ -39,7 +39,7 @@ public class EmotionDetectionModel {
     private GpuDelegate gpuDelegate=null;
 
     private CascadeClassifier cascadeClassifier;
-    public EmotionDetectionModel(AssetManager assetManager, Context context, String modelPath, int inputSize) throws IOException {
+    public EmotionRecognitionModel(AssetManager assetManager, Context context, String modelPath, int inputSize) throws IOException {
         INPUT_SIZE=inputSize;
         Interpreter.Options options=new Interpreter.Options();
         gpuDelegate=new GpuDelegate();
@@ -68,7 +68,7 @@ public class EmotionDetectionModel {
         }
     }
 
-    public Mat recognizeImage(Mat mat_image){
+    public Mat recognizeEmotionLive(Mat mat_image){
         Core.flip(mat_image.t(),mat_image,1);
         Mat grayscaleImage=new Mat();
         Imgproc.cvtColor(mat_image,grayscaleImage,Imgproc.COLOR_RGBA2GRAY);
@@ -109,7 +109,7 @@ public class EmotionDetectionModel {
             Log.d("facial_expression","Output:  "+ emotion_v);
             String emotion_s=get_emotion_text(emotion_v);
 
-            Imgproc.putText(mat_image,emotion_s+" ("+emotion_v+")",
+            Imgproc.putText(mat_image,emotion_s,
                     new Point((int)faceArray[i].tl().x+10,(int)faceArray[i].tl().y+20),
                     1,1.5,new Scalar(0,0,255,150),2);
         }
@@ -117,7 +117,7 @@ public class EmotionDetectionModel {
         return mat_image;
     }
 
-    public Mat recognizePhoto (Mat mat_image){
+    public Mat recognizeEmotionPhoto(Mat mat_image){
 
         Mat grayscaleImage=new Mat();
         Imgproc.cvtColor(mat_image,grayscaleImage,Imgproc.COLOR_RGBA2GRAY);
