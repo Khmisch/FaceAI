@@ -75,7 +75,7 @@ public class CameraViewActivity extends Activity implements CameraBridgeViewBase
         try {
             int inputSize = 48;
             emotionRecognitionModel = new EmotionRecognitionModel(getAssets(), CameraViewActivity.this,
-                    "model.tflite", inputSize);
+                    "model3.tflite", inputSize);
         } catch (IOException e) {
             e.printStackTrace();
         }

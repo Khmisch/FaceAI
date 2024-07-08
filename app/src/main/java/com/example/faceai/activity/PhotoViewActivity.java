@@ -34,7 +34,7 @@ public class PhotoViewActivity extends AppCompatActivity {
         // Initialize EmotionDetectionModel
         try {
             int inputSize = 48;
-            emotionRecognitionModel = new EmotionRecognitionModel(getAssets(), PhotoViewActivity.this, "model300.tflite", inputSize);
+            emotionRecognitionModel = new EmotionRecognitionModel(getAssets(), PhotoViewActivity.this, "model3.tflite", inputSize);
         } catch (IOException e) {
             e.printStackTrace();
         }
