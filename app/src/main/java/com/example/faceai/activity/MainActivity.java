@@ -24,6 +24,11 @@ import org.opencv.android.OpenCVLoader;
 
 import java.util.List;
 
+/**
+ * The MainActivity class is the entry point for the FaceAI application. It provides two main functionalities:
+ * accessing the camera for live emotion detection and selecting an image from the gallery for emotion recognition.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;

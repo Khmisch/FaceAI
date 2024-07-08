@@ -17,6 +17,11 @@ import org.opencv.android.Utils;
 import org.opencv.core.Mat;
 
 import java.io.IOException;
+
+/**
+ * The PhotoViewActivity class allows users to select an image from their device’s gallery and
+ * then applies an emotion recognition model to detect and display the emotion present in the selected photo.
+ */
 public class PhotoViewActivity extends AppCompatActivity {
 
     private ImageView imageView;

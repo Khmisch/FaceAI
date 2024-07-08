@@ -25,6 +25,12 @@ import org.opencv.core.Mat;
 
 import java.io.IOException;
 
+/**
+ * The CameraViewActivity class is responsible for capturing live camera frames, processing these frames to detect faces,
+ * and recognizing emotions in real-time. It integrates OpenCV for camera handling and face detection,
+ * and TensorFlow Lite for emotion recognition.
+ */
+
 public class CameraViewActivity extends Activity implements CameraBridgeViewBase.CvCameraViewListener2 {
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 0;
     private static final String TAG = "MainActivity";

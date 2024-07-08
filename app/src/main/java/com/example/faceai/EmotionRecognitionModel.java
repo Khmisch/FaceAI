@@ -30,7 +30,10 @@ import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Objects;
-
+/**
+ * The EmotionRecognitionModel class is designed to detect faces and recognize emotions in images
+ * or live camera feeds using OpenCV for face detection and TensorFlow Lite for emotion classification
+ */
 public class EmotionRecognitionModel {
     private final Interpreter interpreter;
     private int INPUT_SIZE;

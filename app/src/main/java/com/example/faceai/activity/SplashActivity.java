@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.faceai.R;
 
+/**
+ * The SplashActivity class is designed to display a splash screen when the application is launched.
+ * This screen provides an initial visual experience to the user before the main content is ready.
+ */
 
 public class SplashActivity extends AppCompatActivity {
 
